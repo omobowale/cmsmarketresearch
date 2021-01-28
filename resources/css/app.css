@@ -1,0 +1,86 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.sidebar{
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+    background-color: #004a55;
+    padding-bottom: 6em;
+    overflow: scroll;
+}
+
+.sidebar-brand div{
+   margin:auto;
+   margin-top: 0.5em;
+}
+
+.sidebar-menu ul li:first-child {
+    margin-top: 1.0em;
+}
+
+.sidebar-menu ul li{
+    width: 100%;
+    margin-bottom: 0;
+    padding-left: 2.5em;
+    padding-top: 0.9em;
+    padding-bottom: 0.9em;
+    transition: all 0.5s;
+}
+
+.sidebar-menu ul li:hover{
+    background-color: rgba(11, 26, 29, 0.3) !important;
+}
+
+.sidebar-menu ul li a{
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar-menu ul li a span:first-child{
+    margin-right: 1.0em;
+}
+
+.mainbar {
+    margin-left: 20%;
+}
+
+.table-section {
+    height: 100%;
+}
+
+.table-section table thead tr th {
+    background-color: #004a55;
+}
+
+.table-section table td:not(:last-child) {
+border-bottom: 0;
+}
+
+.table-section table th:not(:last-child) {
+border-bottom: 2px solid rgba(0, 0, 0, .1);
+}
+    
+
+@media (min-width: 640px) {
+    .table-section table {
+        display: inline-table !important;
+    }
+
+    .table-section table thead tr:not(:first-child) {
+        display: none;
+    }
+}
+
