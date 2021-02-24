@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ url('pages') }}">
+                <a href="{{ url('pages-company') }}">
                     <span><i class="la-2x las la-columns"></i></span>
                     <span>Pages</span>
                 </a>

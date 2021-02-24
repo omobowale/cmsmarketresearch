@@ -26,6 +26,7 @@ class TeamMembersController extends Controller
     public function create()
     {
         //
+        return view('team_members.create');
     }
 
     /**
@@ -59,6 +60,12 @@ class TeamMembersController extends Controller
     public function edit($id)
     {
         //
+        $teammember = TeamMember::find($id);
+        if($teammember != null){
+            return view('team_members.edit')->with("teammember", $teammember);
+        }
+
+        return back();
     }
 
     /**

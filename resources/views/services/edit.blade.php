@@ -1,5 +1,4 @@
 <x-app-layout>
-
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a href="/services">{{ __('Services >> ') }} </a> <small class="text-blue-600">Edit Service</small>
@@ -7,8 +6,8 @@
     </x-slot>
 
     <x-slot name="slot">
-        <div class="min-h-screen px-0 py-6 flex flex-col justify-center sm:py-12">
-            <div class="relative py-3 sm:w-3/4 sm:mx-auto">
+        <div class="min-h-screen">
+            <div class="relative pb-3 pt-1 sm:w-3/4 sm:mx-auto">
               <div class="relative px-4 py-10 mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
                 <div class="sm:w-full mx-auto">
                   <div class="flex items-center space-x-5">
@@ -61,8 +60,5 @@
             </div>
           </div>
     </x-slot>
-
-
-
 
 </x-app-layout>

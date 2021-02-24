@@ -21,7 +21,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->resource('pages', \App\Http\Controllers\PagesController::class);
+Route::middleware(['auth:sanctum', 'verified'])->resource('pages-company', \App\Http\Controllers\CompanyController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->resource('services', \App\Http\Controllers\ServicesController::class);
 

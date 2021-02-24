@@ -11,6 +11,14 @@
     text-decoration: none;
 }
 
+.general-bg-color{
+    background-color:#004a55 !important;
+}
+
+.general-text-color{
+    color:#004a55 !important;
+}
+
 .sidebar{
     width: 20%;
     height: 100%;
@@ -71,6 +79,22 @@ border-bottom: 0;
 
 .table-section table th:not(:last-child) {
 border-bottom: 2px solid rgba(0, 0, 0, .1);
+}
+
+/* Pages navbar */
+span[name="pages-navbar"]{
+    /* background-color: red; */
+    cursor: pointer;
+}
+
+span[name="pages-navbar"]:hover{
+    border-bottom: 1px solid rgba(11, 26, 29, 0.7);
+    border-right: 1px solid rgba(11, 26, 29, 0.7)
+}
+
+.pages-navbar-selected{
+    border-bottom: 1px solid rgba(11, 26, 29, 0.7);
+    border-right: 1px solid rgba(11, 26, 29, 0.7)
 }
     
 

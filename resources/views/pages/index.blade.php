@@ -2,12 +2,13 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Page') }}
+            {{ __('Pages >> ') }}
+            @include('pages.navbar', ["id" => 1])
         </h2>
     </x-slot>
 
     <x-slot name="slot">
-        <div class="ml-2">Index</div>
+        @include("pages.commons", ["id" => 1, "name" => "Home", "intro_text" => "Welcome to MarketResearchHelp"])
     </x-slot>
     
 </x-app-layout>
