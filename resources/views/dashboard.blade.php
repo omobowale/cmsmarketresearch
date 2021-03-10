@@ -27,7 +27,7 @@
                     </div>
                     <div class="flex flex-col flex-grow ml-4">
                         <div class="text-md text-gray-500">Admins</div>
-                        <div class="font-bold text-lg">59</div>
+                        <div class="font-bold text-lg">{{App\Models\User::count()}}</div>
                     </div>
                   </div>
                 </div>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="flex flex-col flex-grow ml-4">
                       <div class="text-md text-gray-500">Case Studies</div>
-                      <div class="font-bold text-lg">190</div>
+                      <div class="font-bold text-lg">{{App\Models\CaseStudy::count()}}</div>
                     </div>
                   </div>
                 </div>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="flex flex-col flex-grow ml-4">
                       <div class="text-md text-gray-500">Blogs</div>
-                      <div class="font-bold text-lg">32</div>
+                      <div class="font-bold text-lg">{{App\Models\Blog::count()}}</div>
                     </div>
                   </div>
                 </div>
@@ -57,4 +57,7 @@
             </div>
           </div>
     </x-slot>
+
 </x-app-layout>
+
+

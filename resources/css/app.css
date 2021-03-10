@@ -88,13 +88,13 @@ span[name="pages-navbar"]{
 }
 
 span[name="pages-navbar"]:hover{
-    border-bottom: 1px solid rgba(11, 26, 29, 0.7);
-    border-right: 1px solid rgba(11, 26, 29, 0.7)
+    border-bottom: 3px solid rgb(2, 117, 216);
+    color: rgb(2, 117, 216);
 }
 
 .pages-navbar-selected{
-    border-bottom: 1px solid rgba(11, 26, 29, 0.7);
-    border-right: 1px solid rgba(11, 26, 29, 0.7)
+    border-bottom: 3px solid rgb(2, 117, 216);
+    color: rgb(2, 117, 216);
 }
     
 

@@ -34,4 +34,6 @@ class ServicesSeeder extends Seeder
         }
 
     }
+
+    
 }

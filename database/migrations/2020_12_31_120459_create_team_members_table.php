@@ -18,7 +18,7 @@ class CreateTeamMembersTable extends Migration
             $table->string('name');
             $table->string('role');
             $table->string('gender');
-            $table->text('image_path')->default("not available");
+            $table->text('image_path')->default("notavailable");
             $table->text('emailLink')->nullable();
             $table->text('twitterLink')->nullable();
             $table->text('linkedinLink')->nullable();

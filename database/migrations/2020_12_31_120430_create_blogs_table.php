@@ -19,8 +19,9 @@ class CreateBlogsTable extends Migration
             $table->text('title');
             $table->text('short_introduction');
             $table->text('content');
-            $table->text('image_url');
-            $table->text('blog_tag_id');
+            $table->text('image_path');
+            $table->text('meta_title');
+            $table->text('meta_description');
             $table->text('slug');
             $table->timestamps();
         });
