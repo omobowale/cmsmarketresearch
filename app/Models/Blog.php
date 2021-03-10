@@ -17,4 +17,19 @@ class Blog extends Model
         return $this->belongsToMany(BlogTag::class, "tag__blogs");
     }
 
+    public function tagsToString(){
+        $tags = $this->blogtags;
+        $tagsString = "";
+        foreach($tags as $index => $tag){
+            if($index == count($tags) - 1){
+                $tagsString .= $tag->blog_tag;    
+            }
+            else{
+                $tagsString .= $tag->blog_tag . ",";
+            }
+        }
+
+        return $tagsString;
+    }
+
 }

@@ -63,6 +63,13 @@
                         @enderror
                       </div>
                       <div class="flex flex-col">
+                        <label for="tags" class="leading-loose">Tags <span class="text-red-500 text-sm">(Separated by commas)</span></label>
+                        <input name="tags" id="tags" type="text" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Enter blog tags" value="{{$blog->tagsToString()}}" >
+                        @error('tags')
+                          <div class="text-sm text-red-500">{{ $message }}</div>
+                        @enderror
+                      </div>
+                      <div class="flex flex-col">
                         <label for="slug" class="leading-loose">Slug</label>
                         <input name="slug" id="slug" type="text" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Enter a suitable slug for the blog (Optional)" value="{{ old('slug') ?? $blog->slug ?? '' }}">
                         @error('slug')

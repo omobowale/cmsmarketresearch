@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\Helper;
 use Illuminate\Http\Request;
 use App\Models\Service;
 use Illuminate\Support\Facades\Validator;
@@ -70,10 +71,10 @@ class ServicesController extends Controller
 
         //check for slug
         if($request->slug == ""){
-            $slug = $this->getSlug($request->name);
+            $slug = Helper::getSlug($request->name);
         }
         else{
-            $slug = $this->getSlug($request->slug);
+            $slug = Helper::getSlug($request->slug);
         }
 
         //add the service to database
@@ -167,10 +168,10 @@ class ServicesController extends Controller
 
         //check for slug
         if($request->slug == ""){
-            $slug = $this->getSlug($request->name);
+            $slug = Helper::getSlug($request->name);
         }
         else{
-            $slug = $this->getSlug($request->slug);
+            $slug = Helper::getSlug($request->slug);
         }
 
         //add the service to database
@@ -213,9 +214,6 @@ class ServicesController extends Controller
         //
     }
 
-    public function getSlug($service_name){
-        $string = str_replace(' ', '-', $service_name); // Replaces all spaces with hyphens.
-        return preg_replace('/[^A-Za-z0-9\-]/', '', $service_name); // Removes special chars
-    }
+    
 
 }
