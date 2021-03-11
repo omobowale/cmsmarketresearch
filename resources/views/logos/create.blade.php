@@ -7,6 +7,7 @@
     </x-slot>
 
     <x-slot name="slot">
+      @include('commons.info-displayer')
       <form action="/logos" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="min-h-screen px-0 py-6 flex flex-col justify-start sm:py-12">

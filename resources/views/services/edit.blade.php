@@ -6,6 +6,7 @@
     </x-slot>
 
     <x-slot name="slot">
+
       <form method="post" action="/services/{{$service->id}}" enctype="multipart/form-data">
         @csrf
         @method("PATCH")

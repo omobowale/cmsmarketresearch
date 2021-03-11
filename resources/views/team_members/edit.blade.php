@@ -7,6 +7,7 @@
     </x-slot>
 
     <x-slot name="slot">
+      
       <form action="/team-members/{{$teammember->id}}" enctype="multipart/form-data" method="POST">
         @csrf
         @method("PATCH")

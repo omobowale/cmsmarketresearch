@@ -10,6 +10,8 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
         {{-- Line awesome --}}
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
         
@@ -55,6 +57,7 @@
     <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 
     <script type="text/javascript">
+        
         $(document).ready(function () { 
             CKEDITOR.replace('full_description', {
                 filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
@@ -65,6 +68,11 @@
                 filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
                 filebrowserUploadMethod: 'form'
             });
+
+            $(".close-button").click(function(){
+                $(this).parent().parent().hide();
+            })    
+
         });
     </script>
 </html>

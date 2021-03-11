@@ -7,6 +7,7 @@
     </x-slot>
 
     <x-slot name="slot">
+
       <form method="post" action="/team-members" enctype="multipart/form-data">
         @csrf
         <div class="min-h-screen px-0 py-6 flex flex-col justify-center sm:py-12">

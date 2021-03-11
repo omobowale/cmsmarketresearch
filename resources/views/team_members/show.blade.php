@@ -6,6 +6,8 @@
     </x-slot>
 
     <x-slot name="slot">
+        @include('commons.info-displayer')
+        
         <div class="grid grid-cols-12 mt-5 h-full">
             <div class="col-start-3 col-span-8">
                 <img class="w-full " src={{asset('images/about-us-banner.jpg')}} />

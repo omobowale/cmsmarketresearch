@@ -7,6 +7,7 @@
     </x-slot>
 
     <x-slot name="slot">
+      @include('commons.info-displayer')
       <form action="/logos/{{$logo->id}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method("PATCH")
