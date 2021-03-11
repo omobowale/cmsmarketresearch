@@ -69,6 +69,14 @@
                             <div class="col-span-9 p-5 border-2">{{$blog->content}}</div>
                         </div>
                         <div class="grid grid-cols-12 my-2 ml-4">
+                            <div class="flex text-white items-center general-bg-color p-5 col-span-3">Comments</div>
+                            <div class="col-span-9 p-5 border-2">
+                                <p><span class="general-color font-bold">All : </span>{{count($blog->blogcomments)}}</p>
+                                <p><span class="text-yellow-400 font-bold">Pending : </span>{{count($blog->blogcomments()->where('status', 'pending')->get())}}</p>
+                                <p><span class="text-green-400 font-bold">Approved : </span>{{count($blog->blogcomments()->where('status', 'approved')->get())}}</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-12 my-2 ml-4">
                             <div class="flex text-white items-center general-bg-color p-5 col-span-3">Tags</div>
                             <div class="col-span-9 p-5 border-2">
                                 @foreach ($blog->blogtags as $index => $tag)

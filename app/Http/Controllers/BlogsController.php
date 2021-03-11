@@ -108,7 +108,10 @@ class BlogsController extends Controller
     {
         //
         $blog = Blog::find($id);
-        return view("blogs.show")->with("blog", $blog);
+        if($blog !== null){
+            return view("blogs.show")->with("blog", $blog);
+        }
+        return redirect("/blogs")->with("error", "Cannot load requested page");
     }
 
     /**

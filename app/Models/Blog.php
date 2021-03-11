@@ -32,4 +32,8 @@ class Blog extends Model
         return $tagsString;
     }
 
+    public function blogcomments(){
+        return $this->hasMany(BlogComment::class);
+    }
+
 }
