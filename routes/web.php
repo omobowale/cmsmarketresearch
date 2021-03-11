@@ -25,6 +25,10 @@ Route::middleware(['auth:sanctum', 'verified'])->resource('pages-company', \App\
 
 Route::middleware(['auth:sanctum', 'verified'])->resource('services', \App\Http\Controllers\ServicesController::class);
 
+Route::middleware(['auth:sanctum', 'verified'])->resource('logos', \App\Http\Controllers\LogoController::class);
+
+Route::middleware(['auth:sanctum', 'verified'])->resource('website-names', \App\Http\Controllers\WebNameController::class);
+
 Route::middleware(['auth:sanctum', 'verified'])->resource('blogs/categories', \App\Http\Controllers\BlogCategoryController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->resource('comments', \App\Http\Controllers\BlogCommentController::class);

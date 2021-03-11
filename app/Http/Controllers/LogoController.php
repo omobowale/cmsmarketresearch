@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\TeamMember;
+use App\Models\Logo;
 
-class TeamMembersController extends Controller
+class LogoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class TeamMembersController extends Controller
      */
     public function index()
     {
-        $teammembers = TeamMember::all();
-        return view('team_members.index')->with("teammembers", $teammembers);
+        //
     }
 
     /**
@@ -26,7 +25,7 @@ class TeamMembersController extends Controller
     public function create()
     {
         //
-        return view('team_members.create');
+        return view("logos.create");
     }
 
     /**
@@ -37,42 +36,38 @@ class TeamMembersController extends Controller
      */
     public function store(Request $request)
     {
-        
         $requestData = $request->all();
 
         $customMessages = [
-            "name.max" => "Name of the team member should contain not more than 40 characters.",
+            "name.max" => "Name of the logo should contain not more than 20 characters.",
             "name.min" => "Name should not be less than 2 characters.",
-            "name.required" => "Please enter a name for the team member.",
-            "name.required" => "Please enter a name for the team member.",
-            "gender.required" => "Please select a gender",
-            "role.required" => "Please enter a role",
-            "image.required" => "Please select an image for the team member.",
+            "name.required" => "Please enter a name for the logo.",
+            "image.required" => "Please select an image for the logo.",
             "image.image" => "Selected file should be an image",
             "image.mimes" => "Acceptable file types are jpg, jpeg and png",
             "image.max" => "Image size should not be more than 2MB",
         ];
 
         $validator = $request->validate([
-            "name" => ["required", "min:2", "max:40"],
-            "gender" => ["required"],
-            "role" => ["required"],
+            "name" => ["required", "min:2", "max:20"],
             "image" => ["required", "image", "mimes:jpg,jpeg,png", "max:2048"],
         ], $customMessages);
 
-        //add the team member to database
+        //add the logo to database
         if($request->hasFile('image')){
             $image = $request->file('image');
             $image_name = str_replace(" ", "", $image->getClientOriginalName());
             if($image->move(public_path().'/images/', $image_name)){
                 //save to database
-                $teammember = new TeamMember;
-                $teammember->name = $request->name;
-                $teammember->gender = $request->gender;
-                $teammember->role = $request->role;
-                $teammember->image_path = $image_name;
-                $teammember->save();
-                return redirect("/team-members")->with("success", "New member successfully added!");               
+                $logo = new Logo;
+                $logo->name = $request->name;
+                $logo->current = "no";
+                $logo->image_path = $image_name;
+                $logo->save();
+                return redirect("/others")->with("success", "New logo successfully added!");               
+            }
+            else {
+                return back()->with("error", "Could not add logo");
             }
         }
 
@@ -81,21 +76,25 @@ class TeamMembersController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Set the specified resource as current.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
-        $teammember = TeamMember::find($id);
-        if($teammember != null){
-            return view('team_members.show')->with("teammember", $teammember);
+        //set all current to no
+        Logo::where("id", ">", "0")->update(["current" => "no"]);
+
+        //set the specified to yes
+        $logo = Logo::find($id);
+        $logo->current = "yes";
+        if($logo->save()){
+            return back()->with("success", "Logo has been set to current");
         }
 
-        return back();
-
+        return back()->with("error", "Could not set logo as current");
+        
     }
 
     /**
@@ -107,12 +106,12 @@ class TeamMembersController extends Controller
     public function edit($id)
     {
         //
-        $teammember = TeamMember::find($id);
-        if($teammember != null){
-            return view('team_members.edit')->with("teammember", $teammember);
+        $logo = Logo::find($id);
+        if($logo != null){
+            return view("logos.edit")->with("logo", $logo);
         }
 
-        return back();
+        return back()->with("error", "Could not edit logo");
     }
 
     /**
@@ -124,49 +123,46 @@ class TeamMembersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //
         $requestData = $request->all();
 
         $customMessages = [
-            "name.max" => "Name of the team member should contain not more than 40 characters.",
+            "name.max" => "Name of the logo should contain not more than 20 characters.",
             "name.min" => "Name should not be less than 2 characters.",
-            "name.required" => "Please enter a name for the team member.",
-            "name.required" => "Please enter a name for the team member.",
-            "gender.required" => "Please select a gender",
-            "role.required" => "Please enter a role",
+            "name.required" => "Please enter a name for the logo.",
+            "current.required" => "Please choose whether or not to set logo as current",
             "image.image" => "Selected file should be an image",
             "image.mimes" => "Acceptable file types are jpg, jpeg and png",
             "image.max" => "Image size should not be more than 2MB",
         ];
 
         $validator = $request->validate([
-            "name" => ["required", "min:2", "max:40"],
-            "gender" => ["required"],
-            "role" => ["required"],
+            "name" => ["required", "min:2", "max:20"],
+            "current" => ["required"],
             "image" => ["nullable", "image", "mimes:jpg,jpeg,png", "max:2048"],
         ], $customMessages);
 
-        $teammember = TeamMember::find($id);
-
-        //add the team member to database
+        //add the logo to database
         if($request->hasFile('image')){
             $image = $request->file('image');
             $image_name = str_replace(" ", "", $image->getClientOriginalName());
             if($image->move(public_path().'/images/', $image_name)){
                 //save to database
-                $teammember->name = $request->name;
-                $teammember->gender = $request->gender;
-                $teammember->role = $request->role;
-                $teammember->image_path = $image_name;
-                $teammember->save();
-                return redirect("/team-members")->with("success", "Member successfully updated!");               
+                $logo = Logo::find($id);
+                $logo->name = $request->name;
+                $logo->current = $request->current;
+                $logo->image_path = $image_name;
+                $logo->save();
+                return redirect("/others")->with("success", "Logo successfully updated!");               
             }
         }
-        else{
-                $teammember->name = $request->name;
-                $teammember->gender = $request->gender;
-                $teammember->role = $request->role;
-                $teammember->save();
-                return redirect("/team-members")->with("success", "Member successfully updated!");               
+
+        else {
+            $logo = Logo::find($id);
+            $logo->name = $request->name;
+            $logo->current = $request->current;
+            $logo->save();
+            return redirect("/others")->with("success", "Logo successfully updated!");               
         }
 
         return back();
@@ -183,5 +179,4 @@ class TeamMembersController extends Controller
     {
         //
     }
-
 }

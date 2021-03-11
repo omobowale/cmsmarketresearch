@@ -3,7 +3,11 @@
         <div class="text-right pr-3 text-white">
             <i class="las la-bars la-2x"></i> 
         </div>
-        <div style="height: 6em; width: 6em; background-color:white; border-radius: 100%;"><img style="height: 6em; width: 6em; border-radius: 100%; object-fit:contain; border: 1px solid lavender" src={{asset('images/market-research-help-logo-2.png')}} />            
+        @php
+            $logo = new \App\Models\Logo;
+            $currentLogo = $logo->getCurrentLogo() ?? "market-research-help-logo-2.png";
+        @endphp
+        <div style="height: 6em; width: 6em; background-color:white; border-radius: 100%;"><img style="height: 6em; width: 6em; border-radius: 100%; object-fit:contain; border: 1px solid lavender" src={{asset('images/'. $currentLogo)}} />            
             
         </div>
     </div>

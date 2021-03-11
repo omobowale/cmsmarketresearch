@@ -126,7 +126,7 @@
                     </table>
                 </div> 
                 @else
-                    <div class="text-center font-bold">No comments yet</div>  
+                    <div class="text-center py-6 font-semibold">No comments yet</div>  
                 @endif 
             </div>
         </div>

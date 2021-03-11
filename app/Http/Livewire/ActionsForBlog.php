@@ -24,9 +24,14 @@ class ActionsForBlog extends Component
 
     public function deleteBlog(){
         $blog = Blog::find($this->blog->id);
+        
+        //first delete associated comments
+        $blog->blogcomments()->delete();
+
+        //now delete the blog
         $blog->delete();
         $this->modalFormVisible = false;
-        session()->flash("success", "Blog has been deleted!");
+        session()->flash("success", "Blog (and it's comments) has been deleted!");
         return redirect("/blogs"); //->with();                
     }
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Logo;
+use App\Models\WebsiteName;
 
 class OthersController extends Controller
 {
@@ -14,7 +16,9 @@ class OthersController extends Controller
     public function index()
     {
         //
-        return view("others.index");
+        $logos = Logo::all();
+        $webnames = WebsiteName::all();
+        return view("others.index")->with(["logos" => $logos, "webnames" => $webnames]);
     }
 
     /**

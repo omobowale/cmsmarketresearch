@@ -49,8 +49,8 @@
 
         @foreach ($teammembers as $teammember)
         <section class="grid grid-cols-12 mb-20 mt-30">
-            <div class="col-span-4 border-2 flex items-center">
-                <div class="w-full h-1/2"><img class="w-full h-full" src={{asset('images/'. $teammember->image_path)}} /></div>
+            <div class="col-span-4 border-2 flex items-start" style="height: 18em">
+                <div class="w-full" style="height: 100%"><img class="w-full h-full" src={{asset('images/'. $teammember->image_path)}} /></div>
             </div>
             <div class="col-span-8 border-b-2">
                 <h3 class="text-center general-bg-color font-bold text-2xl p-4 mb-3 text-white">{{$teammember->name}}</h3>
