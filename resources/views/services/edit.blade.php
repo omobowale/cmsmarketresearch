@@ -38,7 +38,7 @@
                       </div>
                       <div class="flex flex-col">
                         <label for="full_description" class="leading-loose">Full Description<span class="text-red-500"> *</span></label>
-                        <textarea name="full_description" id="full_description" type="text" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Enter a full description of the service">{{ old('full_description') ?? $service->full_description ?? ""}}</textarea>
+                        <textarea name="full_description" id="full_description" type="text" class="ckeditor px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Enter a full description of the service">{{ old('full_description') ?? $service->full_description ?? ""}}</textarea>
                         @error('full_description')
                           <div class="text-sm text-red-500">{{ $message }}</div>
                         @enderror

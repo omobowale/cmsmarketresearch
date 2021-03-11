@@ -59,10 +59,6 @@
                         <div class="col-span-9 p-5 border-2">{{$service->short_description}}</div>
                     </div>
                     <div class="grid grid-cols-12 my-2 ml-4">
-                        <div class="flex text-white items-center general-bg-color p-5 col-span-3">Full Description</div>
-                        <div class="col-span-9 p-5 border-2">{{$service->full_description}}</div>
-                    </div>
-                    <div class="grid grid-cols-12 my-2 ml-4">
                         <div class="flex text-white items-center general-bg-color p-5 col-span-3">Slug</div>
                         <div class="col-span-9 p-5 border-2">{{$service->slug}}</div>
                     </div>

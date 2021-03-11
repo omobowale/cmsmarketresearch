@@ -38,3 +38,5 @@ Route::middleware(['auth:sanctum', 'verified'])->resource('admin-management', \A
 Route::middleware(['auth:sanctum', 'verified'])->resource('team-members', \App\Http\Controllers\TeamMembersController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->resource('others', \App\Http\Controllers\OthersController::class);
+
+Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');

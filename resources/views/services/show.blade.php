@@ -17,7 +17,7 @@
                 <h3 class="text-base font-bold">{{$service->short_description}}</h3>
             </div>
             <div class="col-span-12 my-2 px-10">
-                <h3 class="text-base">{{$service->full_description}}</h3>
+                <h3 class="text-base">{!!$service->full_description!!}</h3>
             </div>
             <hr class="col-span-12 my-5" />
             <div class="col-span-12 my-2 px-10 general-text-color">

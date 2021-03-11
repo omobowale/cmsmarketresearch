@@ -6,7 +6,7 @@
                 <span class="mr-10 text-blue-500 border-blue-500 border-b-4 py-8"><a href="/blogs">{{ __('Blogs') }}</a></span>
                 <span class="py-8"><a href="/blogs/categories">{{ __('Category') }}</a></span>
             </h2>
-            <a href="/blogs/categories/create"><div title="Add a new category" class="general-bg-color text-white font-bold cursor-pointer rounded-full h-12 w-12 flex items-center justify-center">+</div></a>
+            <a href="/blogs/create"><div title="Add a new category" class="general-bg-color text-white font-bold cursor-pointer rounded-full h-12 w-12 flex items-center justify-center">+</div></a>
         </div>
     </x-slot>
 
@@ -63,10 +63,6 @@
                         <div class="grid grid-cols-12 my-2 ml-4">
                             <div class="flex text-white items-center general-bg-color p-5 col-span-3">Introduction</div>
                             <div class="col-span-9 p-5 border-2">{{$blog->short_introduction}}</div>
-                        </div>
-                        <div class="grid grid-cols-12 my-2 ml-4">
-                            <div class="flex text-white items-center general-bg-color p-5 col-span-3">Content</div>
-                            <div class="col-span-9 p-5 border-2">{{$blog->content}}</div>
                         </div>
                         <div class="grid grid-cols-12 my-2 ml-4">
                             <div class="flex text-white items-center general-bg-color p-5 col-span-3">Comments</div>

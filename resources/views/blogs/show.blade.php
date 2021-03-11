@@ -55,7 +55,7 @@
                 <h3 class="text-base font-bold">{{$blog->short_introduction}}</h3>
             </div>
             <div class="col-span-12 my-2 px-10">
-                <h3 class="text-base">{{$blog->content}}</h3>
+                <h3 class="text-base">{!!$blog->content!!}</h3>
             </div>
             <hr class="col-span-12 my-5" />
             <div class="col-span-12 my-2 px-10 general-text-color">
