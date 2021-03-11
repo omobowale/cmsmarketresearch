@@ -65,7 +65,6 @@ class WebNameController extends Controller
      */
     public function show($id)
     {
-        //
         //set all current to no
         WebsiteName::where("id", ">", "0")->update(["current" => "no"]);
 
@@ -110,7 +109,7 @@ class WebNameController extends Controller
             "name.max" => "Name of the website should contain not more than 20 characters.",
             "name.min" => "Name should not be less than 2 characters.",
             "name.required" => "Please enter a name for the website.",
-            "current.required" => "Please choose whether or not to set logo as current",
+            "current.required" => "Please choose whether or not to set website name as current",
         ];
 
         $validator = $request->validate([

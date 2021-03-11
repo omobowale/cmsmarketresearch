@@ -25,7 +25,7 @@ class ActionsForWebName extends Component
     public function deleteWebName(){
         $webname = WebsiteName::find($this->webname->id);
         
-        //now delete the logo
+        //now delete the website name
         $webname->delete();
         $this->modalFormVisible = false;
         session()->flash("success", "Website name has been deleted!");

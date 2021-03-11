@@ -29,6 +29,8 @@ Route::middleware(['auth:sanctum', 'verified'])->resource('logos', \App\Http\Con
 
 Route::middleware(['auth:sanctum', 'verified'])->resource('website-names', \App\Http\Controllers\WebNameController::class);
 
+Route::middleware(['auth:sanctum', 'verified'])->resource('contact-manager', \App\Http\Controllers\ContactManagerController::class);
+
 Route::middleware(['auth:sanctum', 'verified'])->resource('blogs/categories', \App\Http\Controllers\BlogCategoryController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->resource('comments', \App\Http\Controllers\BlogCommentController::class);

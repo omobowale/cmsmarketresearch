@@ -7,7 +7,7 @@
     </x-slot>
 
     <x-slot name="slot">
-      <form action="/website-names/{{$webname->id}}" method="POST"">
+      <form action="/website-names/{{$webname->id}}" method="POST">
         @csrf
         @method("PATCH")
         <div class="min-h-screen px-0 py-6 flex flex-col justify-start sm:py-12">

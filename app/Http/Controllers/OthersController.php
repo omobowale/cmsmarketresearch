@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Logo;
 use App\Models\WebsiteName;
+use App\Models\ContactManager;
 
 class OthersController extends Controller
 {
@@ -18,7 +19,8 @@ class OthersController extends Controller
         //
         $logos = Logo::all();
         $webnames = WebsiteName::all();
-        return view("others.index")->with(["logos" => $logos, "webnames" => $webnames]);
+        $contacts = ContactManager::all();
+        return view("others.index")->with(["logos" => $logos, "webnames" => $webnames, "contacts" => $contacts]);
     }
 
     /**
