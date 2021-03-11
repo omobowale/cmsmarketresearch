@@ -25,6 +25,8 @@ Route::middleware(['auth:sanctum', 'verified'])->resource('pages-company', \App\
 
 Route::middleware(['auth:sanctum', 'verified'])->resource('services', \App\Http\Controllers\ServicesController::class);
 
+Route::middleware(['auth:sanctum', 'verified'])->resource('blogs/categories', \App\Http\Controllers\BlogCategoryController::class);
+
 Route::middleware(['auth:sanctum', 'verified'])->resource('blogs', \App\Http\Controllers\BlogsController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->resource('case-studies', \App\Http\Controllers\CaseStudiesController::class);
