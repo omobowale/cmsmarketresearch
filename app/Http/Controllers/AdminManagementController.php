@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AdminManagementController extends Controller
 {
@@ -14,7 +15,8 @@ class AdminManagementController extends Controller
     public function index()
     {
         //
-        return view('admin_management.index');
+        $users = User::all();
+        return view('admin_management.index')->with("users", $users);
     }
 
     /**
@@ -24,7 +26,7 @@ class AdminManagementController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin_management.create");
     }
 
     /**
@@ -36,6 +38,7 @@ class AdminManagementController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
@@ -46,7 +49,7 @@ class AdminManagementController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -57,7 +60,11 @@ class AdminManagementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        if($user != null){
+            return view("admin_management.edit")->with("user", $user);
+        }
+
     }
 
     /**
@@ -82,4 +89,5 @@ class AdminManagementController extends Controller
     {
         //
     }
+
 }

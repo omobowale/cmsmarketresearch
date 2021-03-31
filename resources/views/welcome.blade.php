@@ -40,7 +40,12 @@
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="">
-                    <div class="text-center" style="background-color:white; border-radius: 100%; margin:auto; width: 10em; height: 10em"><img style="height: 10em; width: 10em; border-radius: 100%; object-fit: contain; border: 1px solid lavender" src={{asset('images/market-research-help-logo-2.png')}} /></div>
+                    @php
+                        $logo = new \App\Models\Logo;
+                        $currentLogo = $logo->getCurrentLogo() ?? "market-research-help-logo-2.png";
+                    @endphp
+
+                    <div class="text-center" style="background-color:white; border-radius: 100%; margin:auto; width: 10em; height: 10em"><img style="height: 10em; width: 10em; border-radius: 100%; object-fit: contain; border: 1px solid lavender" src={{asset('images/' . $currentLogo)}} /></div>
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
